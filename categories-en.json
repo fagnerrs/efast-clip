@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "name",
+      "supercategory": "supercategory",
+      "window": "Lung",
+      "description": "description",
+      "quadrant": "Anterior intercostal space",
+      "freeFluidSpace": "Pleural space",
+      "isFreeFluid": false
+    },
+    {
+      "id": 2,
+      "name": "name",
+      "supercategory": "supercategory",
+      "window": "Lung",
+      "description": "description",
+      "quadrant": "Anterior intercostal space",
+      "freeFluidSpace": "Pleural space",
+      "isFreeFluid": false
+    }
+  ]
+}

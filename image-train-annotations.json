@@ -1,0 +1,10 @@
+{
+  "image-01": {
+    "annotations": [
+      "Kidney"
+    ],
+    "window": "Hepatorenal (RUQ)",
+    "quadrant": "Right Upper Quadrant (RUQ)",
+    "freeFluidSpaceSpace": "Morrison's pouch (hepatorenal space)",
+    "hasFreeFluid": false
+  }}
