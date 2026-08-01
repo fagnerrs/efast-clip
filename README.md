@@ -103,11 +103,11 @@ Acurácia geral: **54,13%**. Dobrar o número de épocas manteve a alta precisã
 
 **3.4 Síntese comparativa**
 
-| Configuração | Acurácia geral |
-|---|---|
-| Zero-shot (sem fine-tuning) | 19,83% |
-| Fine-tuning, 5 camadas descongeladas, 10 épocas | 31,53% |
-| Fine-tuning, 5 camadas descongeladas, 20 épocas | 54,13% |
+| Configuração                                     | Acurácia geral |
+|--------------------------------------------------|---|
+| Zero-shot (sem fine-tuning)                      | 19,83% |
+| Fine-tuning, 5 camadas descongeladas, 10 épocas  | 31,53% |
+| Fine-tuning, 10 camadas descongeladas, 20 épocas | 54,13% |
 
 ### 4. Conclusões
 
