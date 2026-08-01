@@ -1,7 +1,7 @@
-# Nome do projeto
+# eFAST-CLIP
 
 #### Aluno: [Fagner Oliveira](https://github.com/fagnerrs)
-#### Orientadora: [Vitor Bento de Sousa](https://github.com/link_do_github).
+#### Orientador: [Vitor Bento de Sousa](https://github.com/link_do_github).
 
 ---
 
@@ -17,7 +17,7 @@ Trabalho apresentado ao curso [VC MASTER](https://ica.puc-rio.ai/vc-master) como
 
 ### Resumo
 
-Inspirado por projetos como o FetalCLIP e o UnimedCLIP, este trabalho teve como objetivo desenvolver um modelo CLIP especializado em imagens do exame eFAST (*Extended Focused Assessment with Sonography for Trauma*). Para isso, buscou-se uma parceria junto à empresa DUOS AI, que forneceu um dataset composto por 22.673 imagens do exame, acompanhadas de anotações dos seus órgãos e do líquido livre. Dado o tamanho do dataset, escrever manualmente a descrição de cada imagem seria uma tarefa exaustiva e de alto custo, por exigir o apoio de um especialista. Para contornar esse problema, foi elaborado um template textual e um pipeline de geração automática de descrições a partir das anotações existentes. Com as descrições geradas, testou-se inicialmente a classificação *zero-shot* do modelo UnimedCLIP sobre as 2.274 imagens do conjunto de teste, avaliando se o modelo acertava a janela correspondente a cada imagem. Em seguida, o modelo passou por *fine-tuning*, descongelando-se as últimas 5 e 10 camadas e utilizando os 20.399 pares imagem-descrição gerados pelo pipeline. Na etapa final, os testes de classificação *zero-shot* foram refeitos com o modelo ajustado e as métricas comparadas. Concluiu-se que o UnimedCLIP, apesar de treinado com centenas de milhares de imagens médicas, apresenta baixo desempenho ao avaliar as janelas do exame eFAST. Após o *fine-tuning*, houve uma melhora considerável na classificação das janelas, passando de 19,83% (*zero-shot*) para 54,13% com apenas 20 épocas de treinamento, quase triplicando o resultado inicial e confirmando a eficiência do *fine-tuning*, mesmo com um dataset de tamanho moderado.
+Inspirado por projetos como o FetalCLIP e o UnimedCLIP, este trabalho teve como objetivo desenvolver um modelo CLIP especializado em imagens do exame eFAST (*Extended Focused Assessment with Sonography for Trauma*). Para isso, buscou-se parceria junto à empresa DUOS AI, que forneceu um dataset composto por 22.673 imagens do exame, acompanhadas de anotações dos seus órgãos e de líquido livre. Dado o tamanho do dataset, escrever manualmente a descrição de cada imagem seria uma tarefa exaustiva e de alto custo, por exigir o apoio de um especialista. Para contornar esse problema, foi elaborado um template textual e um pipeline de geração automática de descrições a partir das anotações existentes. Com as descrições geradas, testou-se inicialmente a classificação *zero-shot* do modelo UnimedCLIP sobre 2.274 imagens do conjunto de teste, avaliando se o modelo acertava a janela correspondente a cada imagem. Em seguida, o modelo passou por *fine-tuning*, descongelando-se as últimas 5 e 10 camadas e utilizando 20.399 pares imagem-descrição gerados pelo pipeline. Na etapa final, os testes de classificação *zero-shot* foram refeitos com o modelo ajustado e as métricas comparadas. Concluiu-se que o UnimedCLIP, apesar de treinado com centenas de milhares de imagens médicas, apresenta baixo desempenho ao avaliar as janelas do exame eFAST. Após o *fine-tuning*, houve uma melhora considerável, passando de 19,83% (*zero-shot*) para 54,13% com apenas 20 épocas de treinamento, quase triplicando o resultado inicial e confirmando a eficiência do *fine-tuning*, mesmo com um dataset de tamanho moderado.
 
 ### 1. Introdução
 
