@@ -58,7 +58,7 @@ Para o *fine-tuning* (`EFAST_Clip_Training.ipynb`), foram utilizados os 20.399 p
 
 ### 3. Resultados
 
-Os resultados abaixo avaliam a tarefa de classificar a janela do exame eFAST a partir da imagem, comparando o modelo UnimedCLIP em modo *zero-shot* com duas configurações de *fine-tuning* (mesmas 5 últimas camadas descongeladas em ambos os encoders, variando o número de épocas), sempre sobre as 2.274 imagens do conjunto de teste.
+Os resultados abaixo avaliam a tarefa de classificar a janela do exame eFAST a partir da imagem, comparando o modelo UnimedCLIP em modo *zero-shot* com duas configurações de *fine-tuning* (variando o número de épocas ecamadas congeladas), sempre sobre as 2.274 imagens do conjunto de teste.
 
 **3.1 Zero-shot (pesos originais do UnimedCLIP)**
 
@@ -88,7 +88,8 @@ Acurácia geral: **31,53%**. O *fine-tuning* já traz precisão de 100% para Pel
 
 **3.3 Fine-tuning — 20 épocas**
 
-Mesma configuração de camadas descongeladas do experimento anterior (5 camadas + projeção em ambos os encoders), agora com 20 épocas de treinamento.
+Configuração: 20.399 pares imagem-descrição; últimas 10 camadas descongeladas no codificador de imagem; últimas 10 camadas + pooler + projeção descongeladas no codificador de texto (BiomedBERT); 20 épocas; loss de treino 1,64; loss de validação 1,54.
+
 
 | Janela | Precisão | Recall | F1 | Suporte |
 |---|---|---|---|---|
