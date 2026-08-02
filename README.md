@@ -23,7 +23,13 @@ Inspirado por projetos como o FetalCLIP e o UnimedCLIP, este trabalho teve como 
 
 O eFAST é um protocolo de ultrassonografia point-of-care utilizado para identificar líquido livre e outras lesões em pacientes de trauma, avaliando rapidamente diferentes janelas anatômicas (pulmonar, perisplênica, hepatorrenal, pélvica e subxifoide). Um modelo de visão computacional capaz de associar imagens desse exame a descrições textuais consistentes pode servir de base para aplicações de apoio à decisão, busca semântica de exames e geração automática de laudos.
 
-### 2. Metodologia
+### 2. Modelagem
+
+O CLIP (*Contrastive Language-Image Pre-training*) é uma arquitetura de aprendizado contrastivo composta por dois codificadores treinados simultaneamente — um codificador de imagem (tipicamente um Vision Transformer, ViT) e um codificador de texto (um Transformer) —, que projetam imagens e textos em um mesmo espaço vetorial. Durante o treinamento, a função de perda contrastiva (InfoNCE) aproxima os vetores dos pares imagem-texto corretos de cada lote e afasta os pares incorretos, permitindo que o modelo aprenda a associar conceitos visuais às suas descrições textuais sem depender de um conjunto fixo de classes rotuladas, como ilustrado na figura abaixo.
+
+![Arquitetura de pré-treinamento contrastivo do CLIP](./assets/clip-architecture.png)
+
+Essa arquitetura tem pontos fortes bem estabelecidos: por treinar em escala e sem depender de rótulos de classe fixos, o CLIP generaliza bem para classificação *zero-shot*, busca semântica de imagens por texto (e vice-versa) e serve como uma base sólida e reutilizável para *fine-tuning* em domínios específicos, como o exame eFAST neste trabalho.
 
 **2.1 Dataset**
 
