@@ -47,9 +47,9 @@ Esse documento foi compartilhado e validado com um médico ultrassonografista an
 
 Para permitir a geração automática das descrições a partir das anotações do dataset, foi criado o arquivo `categories-en.json`, contendo todas as 27 categorias de anotação do dataset (órgãos e líquido livre, por janela), acrescido de quatro campos preenchidos manualmente para cada categoria: `window` (janela a que a imagem pertence), `description` (nome do órgão), `quadrant` (localização do quadrante) e `freeFluidSpace` (espaço onde o líquido livre é procurado), além do indicador `isFreeFluid`.
 
-Com base nesse dicionário, o pipeline (`image-description-pipeline.py`) foi dividido em duas etapas:
+Com base nesse dicionário, o pipeline do arquivo (`image-description-pipeline.py`) implementa duas tarefas: Geração de metadados e Geração da descrição: 
 
-1. **Geração dos metadados** — para cada partição do dataset (treino, validação e teste), as anotações COCO de cada imagem são combinadas com o `categories-en.json`, produzindo os arquivos `image-train-annotations.json`, `image-valid-annotations.json` e `image-test-annotations.json`, com a janela, o quadrante, os órgãos visíveis e a presença de líquido livre de cada imagem.
+1. **Geração de metadados** — para cada partição do dataset (treino, validação e teste), as anotações COCO de cada imagem são combinadas com o `categories-en.json`, produzindo os arquivos `image-train-annotations.json`, `image-valid-annotations.json` e `image-test-annotations.json`, com a janela, o quadrante, os órgãos visíveis e a presença de líquido livre de cada imagem.
 2. **Geração da descrição** — os metadados de cada imagem são usados para preencher o template validado com o especialista, produzindo o arquivo final `image-descriptions.json`, com um par imagem → descrição textual por imagem (por exemplo: *"eFAST image from quadrant Right Upper Quadrant (RUQ) and Hepatorenal (RUQ) window. Visible organs: Liver, Diaphragm, Kidney. Free fluid negative in the Morrison's pouch (hepatorenal space)"*).
 
 Ao final dessa etapa, o dataset de treino e validação combinados geraram 20.399 pares imagem-descrição, usados na etapa de *fine-tuning*.
