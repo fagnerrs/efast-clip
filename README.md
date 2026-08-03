@@ -5,7 +5,7 @@
 
 ---
 
-Trabalho apresentado ao curso [VC MASTER](https://ica.puc-rio.ai/vc-master) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "Visão Computacional: Interpretando o mundo através de imagens".
+Trabalho apresentado ao curso [VC MASTER]([https://ica.puc-rio.ai/vc-master](https://ccec.puc-rio.br/site/Folder?nCurso=visao-computacional%3A-interpretando-o-mundo-atraves-de-imagens-(traco)-computer-vision-master&nInst=CCE)) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "Visão Computacional: Interpretando o mundo através de imagens".
 
 - [Link para o código](https://github.com/fagnerrs/efast-clip).
 
