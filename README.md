@@ -47,7 +47,7 @@ Esse documento foi compartilhado e validado com um médico ultrassonografista an
 
 Para permitir a geração automática das descrições a partir das anotações do dataset, foi criado o arquivo `categories-en.json`, contendo todas as 27 categorias de anotação do dataset (órgãos e líquido livre, por janela), acrescido de quatro campos preenchidos manualmente para cada categoria: `window` (janela a que a imagem pertence), `description` (nome do órgão), `quadrant` (localização do quadrante) e `freeFluidSpace` (espaço onde o líquido livre é procurado), além do indicador `isFreeFluid`.
 
-Com base nesse dicionário, o pipeline do arquivo (`image-description-pipeline.py`) implementa duas tarefas: Geração de metadados e Geração da descrição: 
+Com base nesse dicionário, o pipeline do arquivo (`image-description-pipeline.py`) implementa duas tarefas: geração de metadados e geração da descrição: 
 
 1. **Geração de metadados** — para cada partição do dataset (treino, validação e teste), as anotações COCO de cada imagem são combinadas com o `categories-en.json`, produzindo os arquivos `image-train-annotations.json`, `image-valid-annotations.json` e `image-test-annotations.json`, com a janela, o quadrante, os órgãos visíveis e a presença de líquido livre de cada imagem.
 2. **Geração da descrição** — os metadados de cada imagem são usados para preencher o template validado com o especialista, produzindo o arquivo final `image-descriptions.json`, com um par imagem → descrição textual por imagem (por exemplo: *"eFAST image from quadrant Right Upper Quadrant (RUQ) and Hepatorenal (RUQ) window. Visible organs: Liver, Diaphragm, Kidney. Free fluid negative in the Morrison's pouch (hepatorenal space)"*).
@@ -56,7 +56,7 @@ Ao final dessa etapa, o dataset de treino e validação combinados geraram 20.39
 
 **2.4 Classificação zero-shot com o UnimedCLIP**
 
-O projeto [UniMed-CLIP](https://github.com/fagnerrs/UniMed-CLIP) foi *forkado* para o repositório pessoal do autor e utilizado, sem qualquer ajuste de pesos, para uma avaliação *zero-shot* (`EFast_Zero_shot.ipynb`). O UnimedCLIP foi escolhido por já possuir uma base de treinamento ampla com imagens de ultrassom (base também usada no desenvolvimento do FetalCLIP), o que sugeria melhor capacidade de generalização para o domínio do eFAST do que modelos mais genéricos, como o BiomedCLIP. Para o teste, foram usadas as 2.274 imagens do conjunto de teste e cinco prompts textuais, um por janela do exame: *"Lung window"*, *"Perisplenic (LUQ) window"*, *"Pelvic window"*, *"Hepatorenal (RUQ) window"* e *"Subxiphoid window"*.
+Foi realizado um fork do projeto [UniMed-CLIP](https://github.com/fagnerrs/UniMed-CLIP)  e utilizado para uma avaliação *zero-shot* (`EFast_Zero_shot.ipynb`), sem ajuste de pesos. O UnimedCLIP foi escolhido por já possuir uma base de treinamento ampla com imagens de ultrassom (base também usada no desenvolvimento do FetalCLIP), o que sugeria melhor capacidade de generalização para o domínio do eFAST do que modelos mais genéricos, como o BiomedCLIP. Para o teste, foram usadas as 2.274 imagens do conjunto de teste e cinco prompts textuais, um por janela do exame: *"Lung window"*, *"Perisplenic (LUQ) window"*, *"Pelvic window"*, *"Hepatorenal (RUQ) window"* e *"Subxiphoid window"*.
 
 **2.5 Fine-tuning do UnimedCLIP**
 
@@ -64,7 +64,7 @@ Para o *fine-tuning* (`EFAST_Clip_Training.ipynb`), foram utilizados os 20.399 p
 
 ### 3. Resultados
 
-Os resultados abaixo avaliam a tarefa de classificar a janela do exame eFAST a partir da imagem, comparando o modelo UnimedCLIP em modo *zero-shot* com duas configurações de *fine-tuning* (variando o número de épocas ecamadas congeladas), sempre sobre as 2.274 imagens do conjunto de teste.
+As tabelas abaixo apresentam os resultado do *Zero-shot image classification* do modelo UnimedCLIP, antes e após fine-tunning. A tarefa foi avaliar se o modelo conseguiria classificar corretamente as janelas do exame eFAST. O fine-tunning variou o número de épocas ecamadas congeladas, sempre sobre as 2.274 imagens do conjunto de teste.
 
 **3.1 Zero-shot (pesos originais do UnimedCLIP)**
 
