@@ -5,7 +5,7 @@
 
 ---
 
-Trabalho apresentado ao curso [VC MASTER](https://ica.puc-rio.ai/vc-master) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "Projetos de Sistemas Inteligentes de Apoio à Decisão".
+Trabalho apresentado ao curso [VC MASTER](https://ica.puc-rio.ai/vc-master) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "Visão Computacional: Interpretando o mundo através de imagens".
 
 - [Link para o código](https://github.com/fagnerrs/efast-clip).
 
